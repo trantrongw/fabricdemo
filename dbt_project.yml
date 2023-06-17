@@ -6,6 +6,10 @@ name: 'fabricdemo'
 version: '1.0.0'
 config-version: 2
 
+dispatch:
+  - macro_namespace: automate_dv
+    search_order: ['fabricdemo', 'automate_dv']  # enable override
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'fabricdemo'
 
@@ -34,5 +38,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   fabricdemo:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    RAW:
       +materialized: view

@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: RAW
+    database: LAKE
+    schema: dbo
+    tables:
+      - name: currencyexchange
+      - name: customer
+      - name: date
+      - name: geolocations
+      - name: orderrows
+      - name: orders
+      - name: product
+      - name: store

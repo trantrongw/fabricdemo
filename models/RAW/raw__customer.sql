@@ -1,3 +1,3 @@
 select
     *
-from {{ source('RAW', 'orders') }} 
+from {{ source('RAW', 'customer') }} 

@@ -1,13 +1,13 @@
 {%- set yaml_metadata -%}
-source_model: raw__product
+source_model: raw__currencyexchange
 derived_columns:
-  DV_RECORD_SOURCE: '!contoso_dbo_product'
+  DV_RECORD_SOURCE: '!contoso_dbo_currencyexchange'
   DV_LOAD_DATE: CONVERT(DATETIME2(6), '{{ var('load_date') }}')
-  PRODUCT_ID: ProductKey
+  CURRENCY_ID: ProductKey
   DV_TENANT_ID: '!default'
   DV_BKEY_CODE: '!default'
 hashed_columns: 
-    DV_PRODUCT_HASHKEY:
+    DV_CURRENCY_HASHKEY:
     - DV_TENANT_ID
     - DV_BKEY_CODE
     - PRODUCT_ID

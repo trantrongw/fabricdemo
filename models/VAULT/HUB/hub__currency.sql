@@ -1,6 +1,6 @@
-{%- set source_model = "hash__product" -%}
-{%- set src_pk = "DV_HUB_PRODUCT_HK" -%}
-{%- set src_nk = "PRODUCT_ID" -%}
+{%- set source_model = "hash__currencyexchange" -%}
+{%- set src_pk = "DV_HUB_CURRENCY_HK" -%}
+{%- set src_nk = "CURRENCY_ID" -%}
 {%- set src_ldts = "DV_LOAD_DATE" -%}
 {%- set src_source = "DV_RECORD_SOURCE" -%}
 {%- set src_extra_columns = ["DV_TENANT_ID", "DV_BKEY_CODE"] -%}

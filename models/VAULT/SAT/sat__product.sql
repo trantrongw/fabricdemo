@@ -1,8 +1,8 @@
 {%- set yaml_metadata -%}
 source_model: "hash__product"
-src_pk: "DV_PRODUCT_HASHKEY"
+src_pk: "DV_HUB_PRODUCT_HK"
 src_hashdiff: 
-  source_column: "DV_PRODUCT_HASHDIFF"
+  source_column: "DV_SAT_PRODUCT_HASHDIFF"
   alias: "HASHDIFF"
 src_payload:
   - "Brand"

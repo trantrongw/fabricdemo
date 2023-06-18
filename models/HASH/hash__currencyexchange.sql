@@ -3,22 +3,32 @@ source_model: raw__currencyexchange
 derived_columns:
   DV_RECORD_SOURCE: '!contoso_dbo_currencyexchange'
   DV_LOAD_DATE: CONVERT(DATETIME2(6), '{{ var('load_date') }}')
-  CURRENCY_ID: ProductKey
+  CURRENCY_ID: FromCurrency
   DV_TENANT_ID: '!default'
   DV_BKEY_CODE: '!default'
 hashed_columns: 
-    DV_CURRENCY_HASHKEY:
+    DV_HUB_CURRENCY_HK:
     - DV_TENANT_ID
     - DV_BKEY_CODE
-    - PRODUCT_ID
-    DV_PRODUCT_HASHDIFF:
+    - FromCurrency
+    DV_FROMCURRENCY_HK:
+    - DV_TENANT_ID
+    - DV_BKEY_CODE
+    - FromCurrency
+    DV_TOCURRENCY_HK:
+    - DV_TENANT_ID
+    - DV_BKEY_CODE
+    - FromCurrency
+    DV_LNK_CURRENCYEXCHANGE_HK:
+    - DV_TENANT_ID
+    - DV_BKEY_CODE
+    - Date
+    - FromCurrency
+    - ToCurrency
+    DV_SAT_CURRENCYEXCHANGE_HASHDIFF:
       is_hashdiff: true
       columns:
-        - ProductCode
-        - ProductName  
-        - [Manufacturer]
-        - [Brand]
-
+        - Exchange  
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}

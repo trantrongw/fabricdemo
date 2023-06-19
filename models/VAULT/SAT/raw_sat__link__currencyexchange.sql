@@ -1,14 +1,11 @@
 {%- set yaml_metadata -%}
-source_model: "hash__product"
-src_pk: "DV_HUB_PRODUCT_HK"
+source_model: "hash__currencyexchange"
+src_pk: "DV_LNK_CURRENCYEXCHANGE_HK"
 src_hashdiff: 
-  source_column: "DV_SAT_PRODUCT_HASHDIFF"
+  source_column: "DV_SAT_CURRENCYEXCHANGE_HASHDIFF"
   alias: "HASHDIFF"
 src_payload:
-  - "Brand"
-  - "Category"
-  - "CategoryCode"
-  - "Color"
+  - Exchange
 src_ldts: "DV_LOAD_DATE"
 src_source: "DV_RECORD_SOURCE"
 {%- endset -%}

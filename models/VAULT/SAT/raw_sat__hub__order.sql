@@ -1,13 +1,15 @@
 {%- set yaml_metadata -%}
-source_model: "hash__currencyexchange"
-src_pk: "DV_LNK_CURRENCYEXCHANGE_HK"
+source_model: hash__order
+src_pk: DV_HUB_ORDER_HK
 src_hashdiff: 
-  source_column: "DV_SAT_CURRENCYEXCHANGE_HASHDIFF"
-  alias: "HASHDIFF"
+  source_column: DV_SAT__HUB__ORDER_HASHDIFF
+  alias: HASHDIFF
 src_payload:
-  - "Exchange"
-src_ldts: "DV_LOAD_DATE"
-src_source: "DV_RECORD_SOURCE"
+  - OrderDate
+  - DeliveryDate
+  - CurrencyCode
+src_ldts: DV_LOAD_DATE
+src_source: DV_RECORD_SOURCE
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}

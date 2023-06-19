@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: RAW
-    database: LAKE
-    schema: dbo
+    database: DWH
+    schema: stg
     tables:
       - name: currencyexchange
       - name: customer

@@ -1,33 +1,34 @@
 {%- set yaml_metadata -%}
-source_model: raw__product
+source_model: raw__orderrows
 derived_columns:
-  DV_RECORD_SOURCE: '!contoso_dbo_product'
+  DV_RECORD_SOURCE: '!contoso_dbo_orderrows'
   DV_LOAD_DATE: CONVERT(DATETIME2(6), '{{ var('load_date') }}')
+  ORDER_ID: OrderKey
   PRODUCT_ID: ProductKey
   DV_TENANT_ID: '!default'
   DV_BKEY_CODE: '!default'
 hashed_columns: 
+    DV_HUB_ORDER_HK:
+    - DV_TENANT_ID
+    - DV_BKEY_CODE
+    - ORDER_ID
     DV_HUB_PRODUCT_HK:
     - DV_TENANT_ID
     - DV_BKEY_CODE
     - PRODUCT_ID
-    DV_SAT_PRODUCT_HASHDIFF:
+    DV_LNK_ORDERROWS_HK:
+    - DV_TENANT_ID
+    - DV_BKEY_CODE
+    - ORDER_ID  
+    - PRODUCT_ID
+    - LineNumber  
+    DV_SAT__LNK__ORDERROWS_HASHDIFF:
       is_hashdiff: true
       columns:
-        - ProductCode
-        - ProductName
-        - Manufacturer
-        - Brand
-        - Color
-        - WeightUnitMeasure
-        - Weight
-        - UnitCost
+        - Quantity
         - UnitPrice
-        - SubcategoryCode
-        - Subcategory
-        - CategoryCode
-        - Category
-
+        - NetPrice
+        - UnitCost
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}

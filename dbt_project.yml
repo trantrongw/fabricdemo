@@ -39,9 +39,13 @@ vars:
 models:
   fabricdemo:
     # Config indicated by + and applies to all files under models/example/
-    RAW:
+    10_RAW:
       +materialized: view
-    HASH:
+    20_HASH:
       +materialized: view
-    VAULT:
+    30_VAULT:
       +materialized: incremental
+    40_BIZ:
+      +materialized: view
+    50_MART:
+      +materialized: table
